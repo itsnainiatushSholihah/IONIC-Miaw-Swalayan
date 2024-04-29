@@ -1,0 +1,7 @@
+{
+  "name": "miaw_swalayan",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
