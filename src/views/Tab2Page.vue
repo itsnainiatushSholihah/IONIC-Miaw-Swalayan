@@ -1,23 +1,50 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar>
-        <ion-title>Tab 2</ion-title>
+      <ion-toolbar color="primary">
+        <ion-title>Barang</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Tab 2</ion-title>
+          <ion-title size="large">Barang</ion-title>
         </ion-toolbar>
       </ion-header>
 
-      <ExploreContainer name="Tab 2 page" />
+      <ion-list>
+
+        <ion-item>
+          <ion-label v-for="item in data"lines="full" class="ion-activable ripple-parent">
+            <h2>{{ item?.name }}</h2>
+            <p>{{ item?.price }}</p>
+          </ion-label>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-item>
+
+      </ion-list>
+
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import ExploreContainer from '@/components/ExploreContainer.vue';
+import { axios } from "../services/axios";
+import { onMounted, ref } from "vue";
+
+const data = ref<any[]>([])
+
+onMounted(() => {
+  axios.get('stuff')
+  .then(result => {
+    const isError = result.data.isError
+    const value = result.data.value
+
+    data.value = value
+  }).catch(error => {
+
+  }).finally((){
+    
+  })
+})
 </script>

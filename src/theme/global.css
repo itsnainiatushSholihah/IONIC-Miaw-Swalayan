@@ -1,0 +1,25 @@
+.text-center {
+    text-align: center;
+}
+
+.m-auto {
+    margin: auto;
+}
+
+.my-auto {
+    padding: auto;
+}
+
+.px-auto {
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.py-auto {
+    padding-top: auto;
+    padding-bottom: auto;
+}
+
+.p-0 {
+    padding: 0;
+}
