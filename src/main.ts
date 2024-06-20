@@ -25,12 +25,16 @@ import './theme/variables.css';
 
 /* Theme global css */
 import './theme/global.css';
-import axios from 'axios';
+
+import { axios } from "../services/axios";
+import { token, user } from "../services/user";
+
+import * as VueQrcodeReader from 'vue-qrcode-reader'
 
 const app = createApp(App)
   .use(IonicVue)
-  .use(router);
-  .use(VueQrcodereader)
+  .use(router)
+  .use(VueQrcodeReader)
 
 axios.get('auth')
   .then(result=> {

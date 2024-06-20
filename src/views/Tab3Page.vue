@@ -44,6 +44,17 @@
 
 <script setup lang="ts">
 import { personCircleOutline, logOut } from 'ionicons/icons';
+import { token, user } from "../../services/user";
+import { useRouter } from "vue-router";
+
+const router = useRouter()
+
+const logout = () => {
+  user.value = null
+  token.value = ''
+
+  router.replace('/login')
+}
 </script>
 
 <style>

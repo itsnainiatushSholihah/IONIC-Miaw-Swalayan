@@ -22,7 +22,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/transaction',
-    component: () => import('@/views/pages/transaction.vue'),
+    component: () => import('../views/pages/Transaction.vue'),
     beforeEnter: isLogin,
   },
   {
@@ -52,6 +52,10 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'tab3',
         component: () => import('@/views/Tab3Page.vue')
+      },
+      {
+        path: 'transaction',
+        component: () => import('@/views/pages/transaction.vue')
       }
     ]
   }

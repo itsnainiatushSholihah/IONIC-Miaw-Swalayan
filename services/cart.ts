@@ -13,3 +13,10 @@ export const cart = useStorage<TCart>('cart-data', {
     desc: '',
     stuffs: [],
 })
+
+export const clearcart = () => {
+    cart.value.name = ''
+    cart.value.desc = ''
+    cart.value.no = ''
+    cart.value.stuffs = []
+}

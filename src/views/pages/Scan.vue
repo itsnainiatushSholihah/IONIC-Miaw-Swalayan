@@ -17,7 +17,7 @@
         </ion-toolbar>
       </ion-header>
 
-      <qrcode-stream @detect="onDetect" :track="paintBoundingBox" :formats="['qr_code', 'code_128', 'ean_13']">
+      <qrcode-stream @detect="onDetect" :track="paintBoundingBox" :formats="['qr_code', 'code_128', 'upc_a', 'ean_13']">
       </qrcode-stream>
 
     </ion-content>

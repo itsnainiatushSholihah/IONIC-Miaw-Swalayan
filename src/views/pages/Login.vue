@@ -33,5 +33,35 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
+import { axios } from "../../../services/axios";
+import { token, user, TUser } from "../../../services/user";
+import {useRouter  } from "vue-router";
 
+const email = ref('pororo@gmail.com')
+const Password = ref('123')
+const router = useRouter()
+
+const login = () => {
+    axios.post('login', {
+        email: email.value,
+        password: Password.value,
+    }).then(result => {
+
+        const data = result.data?.value
+        const mess = result.data.mess
+        const isError = result.data.isError
+
+        if(isError) {
+            return
+        }
+
+        user.value = result.data?.value
+        token.value = result.data?.token
+
+        router.replace('tabs/tab1')
+    }).catch(error=> {
+        console.log(error)
+    })
+}
 </script>
